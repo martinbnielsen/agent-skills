@@ -8,10 +8,12 @@ This repo is the source of truth for custom agent skills deployable to both Clau
 
 ## Deployment targets
 
-| Target | Path | Format |
-|--------|------|--------|
-| Claude Code (CLI + VS Code extension) | `~/.claude/skills/<name>.md` | single file |
-| Codex | `~/.codex/skills/<name>/SKILL.md` | file inside directory |
+| Target | Path |
+|--------|------|
+| Claude Code (CLI + VS Code extension) | `~/.claude/skills/<name>/SKILL.md` |
+| Codex | `~/.codex/skills/<name>/SKILL.md` |
+
+Both targets use the same directory-per-skill format.
 
 ## Common commands
 
@@ -48,8 +50,8 @@ Instruction content...
 ```
 skills/              ← one .md file per skill (source of truth)
 Makefile             ← deploy/undeploy/status targets
-~/.claude/skills/    ← copied or symlinked <name>.md files
-~/.codex/skills/     ← copied or symlinked <name>/SKILL.md files
+~/.claude/skills/    ← <name>/SKILL.md (copied or symlinked)
+~/.codex/skills/     ← <name>/SKILL.md (copied or symlinked)
 ```
 
 New skills: create `skills/<name>.md`, then run `make deploy`.

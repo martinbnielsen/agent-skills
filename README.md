@@ -4,10 +4,12 @@ A version-controlled collection of custom agent skills for [Claude Code](https:/
 
 ## Deployment targets
 
-| Agent | Skills directory | Format |
-|-------|-----------------|--------|
-| Claude Code (CLI + VS Code) | `~/.claude/skills/<name>.md` | single file |
-| Codex CLI | `~/.codex/skills/<name>/SKILL.md` | file inside directory |
+| Agent | Skills directory |
+|-------|-----------------|
+| Claude Code (CLI + VS Code) | `~/.claude/skills/<name>/SKILL.md` |
+| Codex CLI | `~/.codex/skills/<name>/SKILL.md` |
+
+Both use the same directory-per-skill layout.
 
 ## Setup
 
