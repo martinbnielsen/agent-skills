@@ -42,7 +42,7 @@ web-inspector                  linked               linked
 
 ## Adding a skill
 
-1. Create `skills/<name>.md` with this frontmatter:
+1. Create `skills/<name>/SKILL.md` with this frontmatter:
 
 ```markdown
 ---

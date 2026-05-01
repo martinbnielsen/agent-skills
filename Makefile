@@ -9,8 +9,8 @@ deploy: deploy-claude deploy-codex
 
 # shared logic: $(1) = target skills dir, $(2) = label
 define deploy_to
-	@for f in $(PROJECT_DIR)/skills/*.md; do \
-		skill=$$(basename $$f .md); \
+	@for f in $(PROJECT_DIR)/skills/*/SKILL.md; do \
+		skill=$$(basename $$(dirname $$f)); \
 		dir=$(1)/$$skill; \
 		target=$$dir/SKILL.md; \
 		mkdir -p "$$dir"; \
@@ -34,8 +34,8 @@ deploy-codex:
 	$(call deploy_to,$(CODEX_SKILLS_DIR),codex)
 
 undeploy:
-	@for f in $(PROJECT_DIR)/skills/*.md; do \
-		skill=$$(basename $$f .md); \
+	@for f in $(PROJECT_DIR)/skills/*/SKILL.md; do \
+		skill=$$(basename $$(dirname $$f)); \
 		for dir in $(CLAUDE_SKILLS_DIR)/$$skill $(CODEX_SKILLS_DIR)/$$skill; do \
 			target=$$dir/SKILL.md; \
 			if [ -e "$$target" ] || [ -L "$$target" ]; then \
@@ -63,8 +63,8 @@ endef
 status:
 	@printf "%-30s %-22s %-22s\n" "skill" "claude" "codex"
 	@printf "%-30s %-22s %-22s\n" "-----" "------" "-----"
-	@for f in $(PROJECT_DIR)/skills/*.md; do \
-		skill=$$(basename $$f .md); \
+	@for f in $(PROJECT_DIR)/skills/*/SKILL.md; do \
+		skill=$$(basename $$(dirname $$f)); \
 		for label_dir in "claude:$(CLAUDE_SKILLS_DIR)" "codex:$(CODEX_SKILLS_DIR)"; do \
 			label=$${label_dir%%:*}; \
 			dir=$${label_dir#*:}; \

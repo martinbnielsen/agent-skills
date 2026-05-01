@@ -48,10 +48,12 @@ Instruction content...
 ## Architecture
 
 ```
-skills/              ← one .md file per skill (source of truth)
+skills/              ← one directory per skill (source of truth)
+  <name>/
+    SKILL.md
 Makefile             ← deploy/undeploy/status targets
 ~/.claude/skills/    ← <name>/SKILL.md (copied or symlinked)
 ~/.codex/skills/     ← <name>/SKILL.md (copied or symlinked)
 ```
 
-New skills: create `skills/<name>.md`, then run `make deploy`.
+New skills: create `skills/<name>/SKILL.md`, then run `make deploy`.
