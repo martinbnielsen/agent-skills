@@ -22,11 +22,12 @@ make deploy
 ## Commands
 
 ```bash
-make deploy        # deploy all skills to both claude and codex
-make deploy-claude # deploy to claude only
-make deploy-codex  # deploy to codex only
-make undeploy      # remove all managed symlinks
-make status        # show deployment state for each skill
+make deploy               # copy all skills to both claude and codex (default)
+make deploy MODE=symlink  # deploy as symlinks — edits take effect without re-deploying
+make deploy-claude        # deploy to claude only
+make deploy-codex         # deploy to codex only
+make undeploy             # remove all deployed files/symlinks
+make status               # show deployment state for each skill
 ```
 
 `make status` output:

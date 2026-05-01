@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Purpose
 
-This repo is the source of truth for custom agent skills deployable to both Claude Code and Codex. Skills are deployed as symlinks so edits take effect immediately without re-deploying.
+This repo is the source of truth for custom agent skills deployable to both Claude Code and Codex. Default deployment mode is `copy`; use `MODE=symlink` if you want edits to take effect without re-deploying.
 
 ## Deployment targets
 
@@ -16,11 +16,12 @@ This repo is the source of truth for custom agent skills deployable to both Clau
 ## Common commands
 
 ```bash
-make deploy        # deploy all skills to both claude and codex
-make deploy-claude # deploy to claude only
-make deploy-codex  # deploy to codex only
-make undeploy      # remove all managed symlinks
-make status        # show deployment state per skill per target
+make deploy               # copy all skills to both claude and codex (default: copy)
+make deploy MODE=symlink  # deploy as symlinks instead (edits are live immediately)
+make deploy-claude        # deploy to claude only
+make deploy-codex         # deploy to codex only
+make undeploy             # remove all deployed files/symlinks
+make status               # show deployment state per skill per target
 ```
 
 ## Skill file format
@@ -47,8 +48,8 @@ Instruction content...
 ```
 skills/              ← one .md file per skill (source of truth)
 Makefile             ← deploy/undeploy/status targets
-~/.claude/skills/    ← symlinks: <name>.md → this repo
-~/.codex/skills/     ← symlinks: <name>/SKILL.md → this repo
+~/.claude/skills/    ← copied or symlinked <name>.md files
+~/.codex/skills/     ← copied or symlinked <name>/SKILL.md files
 ```
 
 New skills: create `skills/<name>.md`, then run `make deploy`.
