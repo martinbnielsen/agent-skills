@@ -61,4 +61,5 @@ The `name` field should match the filename stem (e.g. `skills/my-skill.md` → `
 
 | Skill | Description |
 |-------|-------------|
+| [oracle-plsql](skills/oracle-plsql.md) | Oracle PL/SQL development — Logger framework, Trivadis guidelines, Feuerstein best practices |
 | [web-inspector](skills/web-inspector.md) | Inspect and interact with live websites using Chrome DevTools MCP |
