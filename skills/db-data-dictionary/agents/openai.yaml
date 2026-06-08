@@ -1,0 +1,4 @@
+interface:
+  display_name: "DB Data Dictionary"
+  short_description: "Dump schema metadata to DATABASE.md"
+  default_prompt: "Use $db-data-dictionary to refresh the datamodel from local-26ai-demo."
